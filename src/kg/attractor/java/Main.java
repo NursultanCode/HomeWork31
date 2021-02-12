@@ -42,6 +42,8 @@ public class Main {
         //System.out.println(RestaurantOrders.customerWithMin(customersWithTotal));
         //System.out.println("Customer with max order");
         //System.out.println(RestaurantOrders.customerWithMax(customersWithTotal));
+        //var list =  RestaurantOrders.getAllOrdersWithAmount(orders);
+        //list.forEach((key,value) -> System.out.println(key+": " + value));
 
 
 

@@ -4,6 +4,7 @@ import static java.util.Comparator.*;
 
 import com.google.gson.Gson;
 import kg.attractor.java.homework.domain.Customer;
+import kg.attractor.java.homework.domain.Item;
 import kg.attractor.java.homework.domain.Order;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 public class RestaurantOrders {
     // Этот блок кода менять нельзя! НАЧАЛО!
@@ -119,6 +121,16 @@ public class RestaurantOrders {
     public static Customer customerWithMax(Map<Customer, Double> customerDoubleMap){
         return Collections.max(customerDoubleMap.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
+
+    public static Map<String, Integer> getAllOrdersWithAmount(List<Order> orders){
+        var items = orders.stream()
+                .flatMap(m->m.getItems().stream())
+                .collect(toList());
+        return items.stream()
+                .collect(groupingBy(Item::getName,
+                        summingInt(Item::getAmount)));
+    }
+
 
 
 
