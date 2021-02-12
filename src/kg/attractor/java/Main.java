@@ -32,12 +32,12 @@ public class Main {
         //System.out.println("Total price of all orders: "+ RestaurantOrders.totalPriceOfAllOrders(orders));
         //var list = RestaurantOrders.getMoreThanMinAndLessThanMaxOrders(orders);
         //list.forEach(Order::printAllItems);
-        var mails = RestaurantOrders.getAllMails(orders);
-        mails.forEach(System.out::println);
-
-
-
-
+        //var mails = RestaurantOrders.getAllMails(orders);
+        //mails.forEach(System.out::println);
+        //var customersByGroup = RestaurantOrders.getGroupsOfCustomers(orders);
+        //customersByGroup.forEach((key,value) -> value.forEach(Order::printAllItems));
+        var customersWithTotal = RestaurantOrders.getCustomersWithTotal(orders);
+        customersWithTotal.forEach((key, value)-> System.out.println(key.getFullName()+": "+value));
 
 
         //var orders = RestaurantOrders.read("orders_1000.json").getOrders();

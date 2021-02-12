@@ -2,6 +2,7 @@ package kg.attractor.java.homework.domain;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -66,4 +67,5 @@ public class Order {
         items.stream().map(Item::toString).forEach(System.out::println);
         System.out.println("Total: " + String.format("%.2f",calculateTotal()));
     }
+
 }

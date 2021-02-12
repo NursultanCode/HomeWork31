@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 
 public class RestaurantOrders {
@@ -100,6 +101,18 @@ public class RestaurantOrders {
                 .map(Customer::getEmail)
                 .collect(toCollection(TreeSet::new));
     }
+
+    public static Map<Customer, List<Order>> getGroupsOfCustomers(List<Order> orders){
+        return orders.stream()
+                .collect(groupingBy(Order::getCustomer));
+    }
+    public static Map<Customer, Double> getCustomersWithTotal(List<Order> orders){
+        return orders.stream()
+                .collect(groupingBy(Order::getCustomer,
+                        summingDouble(Order::calculateTotal)));
+    }
+
+
 
 
 
