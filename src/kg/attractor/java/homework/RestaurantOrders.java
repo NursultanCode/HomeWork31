@@ -72,6 +72,27 @@ public class RestaurantOrders {
         System.out.println("\nWith minimum total price delivery to home");
           min.forEach(Order::printAllItems);
     }
+    public static double totalPriceOfAllOrders(List<Order> orders){
+        return orders.stream()
+                .mapToDouble(Order::calculateTotal)
+                .sum();
+    }
+    public static List<Order> getMoreThanMinAndLessThanMaxOrders(List<Order> orders){
+        return orders.stream()
+                .takeWhile(order -> order.calculateTotal()<maxForOrders(orders).calculateTotal())
+                .takeWhile(order -> order.calculateTotal()>minForOrders(orders).calculateTotal())
+                .collect(toList());
+    }
+
+    public static Order maxForOrders(List<Order> orders){
+        var max = getMostExpensive(orders,1);
+        return max.get(0);
+    }
+
+    public static Order minForOrders(List<Order> orders){
+        var min = getMostCheapest(orders, 1);
+        return min.get(0);
+    }
 
 
 

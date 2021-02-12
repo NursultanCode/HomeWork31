@@ -28,7 +28,12 @@ public class Main {
         //mostCheapest.forEach(Order::printAllItems);
         //var homeDelivery = RestaurantOrders.getListWithDelivery(orders);
         //homeDelivery.forEach(Order::printAllItems);
-        RestaurantOrders.maxAndMinForHomeDelivery(orders);
+        //RestaurantOrders.maxAndMinForHomeDelivery(orders);
+        //System.out.println("Total price of all orders: "+ RestaurantOrders.totalPriceOfAllOrders(orders));
+        var list = RestaurantOrders.getMoreThanMinAndLessThanMaxOrders(orders);
+        list.forEach(Order::printAllItems);
+
+
 
 
 
