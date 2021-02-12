@@ -36,8 +36,13 @@ public class Main {
         //mails.forEach(System.out::println);
         //var customersByGroup = RestaurantOrders.getGroupsOfCustomers(orders);
         //customersByGroup.forEach((key,value) -> value.forEach(Order::printAllItems));
-        var customersWithTotal = RestaurantOrders.getCustomersWithTotal(orders);
-        customersWithTotal.forEach((key, value)-> System.out.println(key.getFullName()+": "+value));
+        //var customersWithTotal = RestaurantOrders.getCustomersWithTotal(orders);
+        //customersWithTotal.forEach((key, value)-> System.out.println(key.getFullName()+": "+value));
+        //System.out.println("Customer with min order");
+        //System.out.println(RestaurantOrders.customerWithMin(customersWithTotal));
+        //System.out.println("Customer with max order");
+        //System.out.println(RestaurantOrders.customerWithMax(customersWithTotal));
+
 
 
         //var orders = RestaurantOrders.read("orders_1000.json").getOrders();

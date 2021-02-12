@@ -9,6 +9,7 @@ import kg.attractor.java.homework.domain.Order;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
@@ -110,6 +111,13 @@ public class RestaurantOrders {
         return orders.stream()
                 .collect(groupingBy(Order::getCustomer,
                         summingDouble(Order::calculateTotal)));
+    }
+    public static Customer customerWithMin(Map<Customer, Double> customerDoubleMap){
+        return Collections.min(customerDoubleMap.entrySet(), Map.Entry.comparingByValue()).getKey();
+    }
+
+    public static Customer customerWithMax(Map<Customer, Double> customerDoubleMap){
+        return Collections.max(customerDoubleMap.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
 
