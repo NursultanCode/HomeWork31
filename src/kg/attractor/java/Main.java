@@ -28,7 +28,7 @@ public class Main {
         //mostCheapest.forEach(Order::printAllItems);
         //var homeDelivery = RestaurantOrders.getListWithDelivery(orders);
         //homeDelivery.forEach(Order::printAllItems);
-
+        RestaurantOrders.maxAndMinForHomeDelivery(orders);
 
 
 

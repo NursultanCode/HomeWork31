@@ -63,8 +63,14 @@ public class RestaurantOrders {
                 .collect(toList());
     }
 
-    public void maxAndMinForHomeDelivery(List<Order> orders){
-
+    public static void maxAndMinForHomeDelivery(List<Order> orders){
+          var delivery = getListWithDelivery(orders);
+          var max = getMostExpensive(delivery,1);
+          var min = getMostCheapest(delivery, 1);
+        System.out.println("\nWith maximum total price delivery to home");
+          max.forEach(Order::printAllItems);
+        System.out.println("\nWith minimum total price delivery to home");
+          min.forEach(Order::printAllItems);
     }
 
 
