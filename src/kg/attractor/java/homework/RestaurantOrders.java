@@ -3,6 +3,7 @@ import static java.util.stream.Collectors.*;
 import static java.util.Comparator.*;
 
 import com.google.gson.Gson;
+import kg.attractor.java.homework.domain.Customer;
 import kg.attractor.java.homework.domain.Order;
 
 import java.io.IOException;
@@ -92,6 +93,14 @@ public class RestaurantOrders {
     public static Order minForOrders(List<Order> orders){
         var min = getMostCheapest(orders, 1);
         return min.get(0);
+    }
+
+    public static List<String> getAllMails(List<Order> orders){
+        return orders.stream()
+                .map(Order::getCustomer)
+                .map(Customer::getEmail)
+                .distinct()
+                .collect(toList());
     }
 
 
