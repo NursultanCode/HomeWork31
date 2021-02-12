@@ -32,6 +32,8 @@ public class Main {
         //System.out.println("Total price of all orders: "+ RestaurantOrders.totalPriceOfAllOrders(orders));
         //var list = RestaurantOrders.getMoreThanMinAndLessThanMaxOrders(orders);
         //list.forEach(Order::printAllItems);
+        var mails = RestaurantOrders.getAllMails(orders);
+        mails.forEach(System.out::println);
 
 
 

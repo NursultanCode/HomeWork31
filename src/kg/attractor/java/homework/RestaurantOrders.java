@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.TreeSet;
 
 public class RestaurantOrders {
     // Этот блок кода менять нельзя! НАЧАЛО!
@@ -80,8 +80,7 @@ public class RestaurantOrders {
     }
     public static List<Order> getMoreThanMinAndLessThanMaxOrders(List<Order> orders){
         return orders.stream()
-                .takeWhile(order -> order.calculateTotal()<maxForOrders(orders).calculateTotal())
-                .takeWhile(order -> order.calculateTotal()>minForOrders(orders).calculateTotal())
+                .takeWhile(order -> order.calculateTotal()<maxForOrders(orders).calculateTotal() && order.calculateTotal()>minForOrders(orders).calculateTotal())
                 .collect(toList());
     }
 
@@ -95,12 +94,11 @@ public class RestaurantOrders {
         return min.get(0);
     }
 
-    public static List<String> getAllMails(List<Order> orders){
+    public static TreeSet<String> getAllMails(List<Order> orders){
         return orders.stream()
                 .map(Order::getCustomer)
                 .map(Customer::getEmail)
-                .distinct()
-                .collect(toList());
+                .collect(toCollection(TreeSet::new));
     }
 
 
